@@ -48,6 +48,7 @@ function App() {
   const closeModal = () => {
     const modalInstance = Modal.getInstance(productModalRef.current);
     modalInstance.hide();
+    setQtySelect(1);
   };
 
   const handleSeeMore = (product) => {
@@ -490,17 +491,12 @@ function App() {
               留言
             </label>
             <textarea
-              {...register("message", {
-                required: "留言 欄位必填",
-              })}
+              {...register("message")}
               id="message"
-              className={`form-control ${errors.message && "is-invalid"}`}
+              className="form-control"
               cols="30"
               rows="10"
             ></textarea>
-            {errors.message && (
-              <p className="text-danger my-2">{errors.message.message}</p>
-            )}
           </div>
           <div className="text-end">
             <button
